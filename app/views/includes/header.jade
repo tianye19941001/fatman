@@ -3,17 +3,13 @@ header
 		li
 			a(href="/") 首页
 		li
-			a(href="/article")  景区新闻
+			a(href="/news")  景区新闻
 		li 
-			a(href="") 图片赏析
+			a(href="/pics") 图片赏析
 		li
-			a(href="/about") 旅游日记
+			a(href="/diary") 旅游日记
 		li
-			a(href="/connect") 注册/登陆
-.ty_logo
-	h1 
-		//- img(src="/libs/images/bannar.jpg")
-		a(href="/") 小楼兰的奔跑
+			a(href="/login") 注册/登陆
 .ty_tools
 	if user
 		span 欢迎 
@@ -22,6 +18,3 @@ header
 	else
 		a(href='/register') 注册
 		a(href='/login') 登陆
-canvas(id="EarthCanvas",class="EarthCanvas")
-.ty_times
-	canvas(id="canvas_time",class="canvas_time")

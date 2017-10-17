@@ -1,6 +1,16 @@
 extends ../layout
 
 block content
+	.ty_bannar
+		.swiper-container(style='width:100%;height:400px;')
+			.swiper-wrapper
+				.swiper-slide
+					img(src="/libs/images/light.png")
+				.swiper-slide
+					img(src="/libs/images/light.png")
+				.swiper-slide
+					img(src="/libs/images/light.png")
+			.swiper-pagination
 	.ty_index
 		.ty_article_list
 			h2.ty_index_h2 
@@ -21,5 +31,12 @@ block content
 						a(href="/interesting/light") 点灯游戏
 					img(src="/libs/images/light.png")
 					p 恶魔和抓住了两个无辜的人类，和他们们玩了一个游戏，让他们在指定的方块内点亮灯，每次只可以点一个方块内的灯，点多少盏由自己决定，点最后一盏灯的人将会被带到地狱去。游戏规则：每个玩家每次只能点亮一个方块里的任意盏灯，点亮所有方块里最后一盏灯的人为失败方。
-
-
+		.ty_pics_list
+			ul
+				li
+					a
+						img(src="/libs/images/light.png")
+	script(src="/libs/js/swiper.js")
+	script(type='text/javascript').
+		var swiper = new Swiper('.swiper-container', { pagination: '.swiper-pagination',paginationClickable: true });
+	
