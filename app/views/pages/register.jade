@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+	form.ty_formR(action="/user/signup",method="post")
+		h2 注册
+		p 昵称
+		input#signupName(name="user[name]", type="text")
+		p 密码
+		input#signupPassword(name="user[password]", type="password")
+		p 重复密码
+		input#signupRePassword(name="user[repassword]", type="password")
+		input.signsubmit(value="注册",type="submit")

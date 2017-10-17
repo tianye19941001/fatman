@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+	.ty_connect
+		img.ty_headPic(src="/libs/images/tianye.png")
+		p 联系人：田野
+		p 联系邮箱：tianye19941001@163.com
+	.ty_msg
+		.ty_msg_list
+			ul
+				each item in messages
+					li
+						span 昵称:
+						strong #{item.name.name}
+						p #{item.message}
+		form.ty_msg_bor(action="connect/message",method="post")
+			if user
+				textarea(placeholder="谢谢留言",name="message[message]")
+				input(type="hidden",name="message[name]",value="#{user._id}")
+				p.ty_msg_sub
+					input(type="submit",value="提交")
+			else
+				p.ty_tellyou 请登陆后再留言
+
+		

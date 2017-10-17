@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+	form.ty_admin_article(action="/admin/article",method="post")
+		h2 文章上传
+			span (暂时只支持博客园文章)
+		input.ty_admin_AdrArticle(type="text",name='article[url]')
+		span.ty_admin_GetArticle 获取文章
+		h3 标题
+		input.ty_admin_TitArticle(type="text",name="article[title]")
+		h3 摘要
+		textarea.ty_admin_ConArticle(name="article[summary]")
+		input.ty_admin_SubArticle(type="submit",value="提交")
+	script(src="/libs/js/admin.js")

@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+	form.ty_admin_article(action="/admin/interesting",method="post",enctype="multipart/form-data")
+		h2 小玩意录入
+		h3 标题
+		input.ty_admin_TitArticle(type="text",name="interesting[title]")
+		h3 详细介绍
+		textarea.ty_admin_ConArticle(name="interesting[detial]")
+		h3 小玩意iframe导入
+		input.ty_admin_file(type="file",name="avatar")
+		h3 博客地址
+		input.ty_admin_TitArticle(type="text",name="interesting[url]")
+		h3 iframe预览
+		//- iframe(class="ty_admin_iframe",width="1196",height="380",scrolling="no",marginwidth="0",marginheight="0",src="")
+		input.ty_admin_SubArticle(type="submit",value="提交")
+	script(src="/libs/js/admin.js")

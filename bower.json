@@ -1,0 +1,25 @@
+{
+  "name": "single",
+  "description": "tyweb",
+  "main": "app.js",
+  "authors": [
+    "ty"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "tyweb"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

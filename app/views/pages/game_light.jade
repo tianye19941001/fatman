@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+	.godArea
+		- var ttt = [1,3,5,7,9]
+		each item in ttt
+			.godAreaIn
+				-for (var i = 1; i < item+1; i++) {
+					span(class="deathlight off light#{i}")
+						i
+				-}
+	a.ty_confirm(href="") 确定点燃
+	script(src="/libs/js/game_light.js")
+				

@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+	.ty_index
+		.ty_article_list
+			h2.ty_index_h2 
+				span 小文章
+			ul
+				each item in articles
+					li
+						h3 
+							a(href="#{item.url}") #{item.title}
+						p #{item.summary}
+			a.more(href="/article") 更多----->
+		.ty_article_list
+			h2.ty_index_h2
+				span 小玩意
+			ul
+				li
+					h3 
+						a(href="/interesting/light") 点灯游戏
+					img(src="/libs/images/light.png")
+					p 恶魔和抓住了两个无辜的人类，和他们们玩了一个游戏，让他们在指定的方块内点亮灯，每次只可以点一个方块内的灯，点多少盏由自己决定，点最后一盏灯的人将会被带到地狱去。游戏规则：每个玩家每次只能点亮一个方块里的任意盏灯，点亮所有方块里最后一盏灯的人为失败方。
+
+
