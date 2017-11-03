@@ -5,38 +5,53 @@ block content
 		.swiper-container(style='width:100%;height:400px;')
 			.swiper-wrapper
 				.swiper-slide
-					img(src="/libs/images/light.png")
+					img(src="/libs/images/timg.jpeg")
 				.swiper-slide
-					img(src="/libs/images/light.png")
+					img(src="/libs/images/timg.jpeg")
 				.swiper-slide
-					img(src="/libs/images/light.png")
+					img(src="/libs/images/timg.jpeg")
 			.swiper-pagination
 	.ty_index
-		.ty_article_list
-			h2.ty_index_h2 
-				span 小文章
-			ul
-				each item in articles
+		.ty_left
+			.ty_article_list
+				h2.ty_index_h2 
+					span 旅游日记
+				ul
+					each item in articles
+						li
+							h3 
+								a(href="#{item.url}") #{item.title}
+							p #{item.summary}
+				a.more(href="/article") 更多----->
+		.ty_right
+			.ty_article_list
+				h2.ty_index_h2
+					span 景区新闻
+				ul
 					li
 						h3 
-							a(href="#{item.url}") #{item.title}
-						p #{item.summary}
-			a.more(href="/article") 更多----->
-		.ty_article_list
-			h2.ty_index_h2
-				span 小玩意
-			ul
-				li
-					h3 
-						a(href="/interesting/light") 点灯游戏
-					img(src="/libs/images/light.png")
-					p 恶魔和抓住了两个无辜的人类，和他们们玩了一个游戏，让他们在指定的方块内点亮灯，每次只可以点一个方块内的灯，点多少盏由自己决定，点最后一盏灯的人将会被带到地狱去。游戏规则：每个玩家每次只能点亮一个方块里的任意盏灯，点亮所有方块里最后一盏灯的人为失败方。
-		.ty_pics_list
-			ul
-				li
-					a
-						img(src="/libs/images/light.png")
+							a(href="/article_in") 点灯游戏
+						//- img(src="/libs/images/light.png")
+						p 亮一个方块里的任意盏灯，点亮所有方块里最后一盏灯的人为失败方。
+	.ty_picall
+		h2.ty_index_h2
+			span 图片赏析
+		ul
+			li
+				a(href="#") 
+					img(src="/libs/images/timg.jpeg", alt="alt")
+			li
+				a(href="#") 
+					img(src="/libs/images/timg.jpeg", alt="alt")
+	.dialog_for_show
+		.topbar 欢迎大家进入十里长廊旅游网
+		.con
+			img.img(src="/libs/images/timg.jpeg", alt="alt")
+			img.img1(src="/libs/images/yun1.png", alt="alt")
+			img.img2(src="/libs/images/yun2.png", alt="alt")
+			p 点击任意地点关闭
 	script(src="/libs/js/swiper.js")
+	script(src="/libs/js/app.js")
 	script(type='text/javascript').
 		var swiper = new Swiper('.swiper-container', { pagination: '.swiper-pagination',paginationClickable: true });
 	

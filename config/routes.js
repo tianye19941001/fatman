@@ -20,6 +20,7 @@ module.exports = function(app) {
 
 	app.get('/',Index.index);
 	app.get('/article',Article.all);
+	app.get('/article_in',Article.con);
 	app.get('/interesting',Interesting.all);
 	app.get('/register',User.pagereg);
 	app.get('/login',User.pagelogin);
@@ -31,7 +32,7 @@ module.exports = function(app) {
 	app.post('/connect/message',User.signinRequired,Message.save);
 	//关于我
 	app.get('/about',Other.about);
-	
+
 	// 小玩意
 	app.get('/interesting/light',Interesting.gameLight);
 
@@ -43,10 +44,10 @@ module.exports = function(app) {
 
 	app.get('/admin/interesting',User.signinRequired,User.adminRequired,Interesting.pageinteresting);
 	app.post('/admin/interesting',User.signinRequired,User.adminRequired,upload.single('avatar'),Interesting.save);
-	
+
 	// 调戏敏姐专用
 	app.get('/about',Other.min);
-	
+
 	app.get('*', Other.P404);
 
 
@@ -131,7 +132,7 @@ module.exports = function(app) {
 	   fs.readFile( req.files[0].path, function (err, data) {
 	        fs.writeFile(des_file, data, function (err) {
 	         if( err ){
-	              console.log( err ); 
+	              console.log( err );
 	         }else{
 	               response = {
 	                   message:'File uploaded successfully',
