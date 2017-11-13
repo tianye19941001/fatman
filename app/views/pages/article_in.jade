@@ -1,8 +1,29 @@
 extends ../layout
 
 block content
-  h1.ty_acIn_title 
-    span 旅游日记
-  .ty_acIn_title
-    h3 此处是标题
-    p asdasdasdasdasda
+	h1.ty_acIn_title 
+		span 旅游日记
+	.ty_acIn_con
+		h3 #{article.title}
+		p #{article.summary}
+	hr
+		
+	#comments_con
+		ul
+			each item in comments
+				li
+					.left
+						span #{item.from.name}:
+					.right #{item.content}
+
+	#comments
+		form#commentForm(method="POST", action="/user/comment")
+			if user
+				input(type="hidden", name="comment[article]", value="#{article.articleId}")
+				input(type="hidden", name="comment[from]", value="#{user._id}")
+			.form-group
+				textarea.form-control(row="3", name="comment[content]")
+			if user
+				button.btn.btn-primary(type="submit") 提交
+			else
+				a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") 登陆后评论

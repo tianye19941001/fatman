@@ -8,7 +8,6 @@ var ArticleSchema = new mongoose.Schema({
 	},
 	summary:String,
 	url:String,
-	articleId:Number,
 	meta:{
 		creatAt:{
 			type:Date,

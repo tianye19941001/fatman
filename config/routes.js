@@ -1,6 +1,7 @@
 var fs = require("fs");
 var Index = require('../app/controllers/index');
 var User = require('../app/controllers/user');
+var Comment = require('../app/controllers/comment');
 var Article = require('../app/controllers/article');
 var Message = require('../app/controllers/meg');
 var Other = require('../app/controllers/otherpages');
@@ -39,13 +40,16 @@ module.exports = function(app) {
 	app.get('/admin/article',User.signinRequired,User.adminRequired,Article.pagearticle);
 	app.post('/admin/article',User.signinRequired,User.adminRequired,User.adminRequired,Article.save);
 	app.get('/admin/list',User.signinRequired,User.adminRequired,Article.pagelist );
+
+	app.post('/user/comment',User.signinRequired,Comment.save);
+
 	// 爬文章接口
 	app.post('/Crawler',User.signinRequired,User.adminRequired,Cr.cr);
 
 	app.get('/admin/interesting',User.signinRequired,User.adminRequired,Interesting.pageinteresting);
 	app.post('/admin/interesting',User.signinRequired,User.adminRequired,upload.single('avatar'),Interesting.save);
 
-	// 调戏敏姐专用
+	
 	app.get('/about',Other.min);
 
 	app.get('*', Other.P404);

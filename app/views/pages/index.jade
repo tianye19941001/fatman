@@ -20,7 +20,7 @@ block content
 					each item in articles
 						li
 							h3 
-								a(href="#{item.url}") #{item.title}
+								a(href="article_in?id=#{item.articleId}") #{item.title}
 							p #{item.summary}
 				a.more(href="/article") 更多----->
 		.ty_right
@@ -28,11 +28,12 @@ block content
 				h2.ty_index_h2
 					span 景区新闻
 				ul
-					li
-						h3 
-							a(href="/article_in") 点灯游戏
-						//- img(src="/libs/images/light.png")
-						p 亮一个方块里的任意盏灯，点亮所有方块里最后一盏灯的人为失败方。
+					each item in articles
+						li
+							h3 
+								a(href="#{item.url}") #{item.title}
+							p #{item.summary}
+				a.more(href="/article") 更多----->
 	.ty_picall
 		h2.ty_index_h2
 			span 图片赏析
