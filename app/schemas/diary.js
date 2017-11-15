@@ -1,13 +1,15 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema 
 
-var ArticleSchema = new mongoose.Schema({
+var DiarySchema = new mongoose.Schema({
 	title:{
 		unique:true,
 		type:String
 	},
 	summary:String,
 	url:String,
+	diaryId:Number,
+	imgs: Array,
 	meta:{
 		creatAt:{
 			type:Date,
@@ -20,7 +22,7 @@ var ArticleSchema = new mongoose.Schema({
 	}
 })
 
-ArticleSchema.pre('save',function(next) {
+DiarySchema.pre('save',function(next) {
 	if(this.isNew){
 		this.meta.creatAt = this.meta.updateAt = Date.now()
 	}else{
@@ -29,7 +31,7 @@ ArticleSchema.pre('save',function(next) {
 	next()
 })
 
-ArticleSchema.statics ={
+DiarySchema.statics ={
 	fetch: function(cb){
 		return this
 			.find({})
@@ -41,4 +43,4 @@ ArticleSchema.statics ={
 			.exec(cb)
 	}
 }
-module.exports = ArticleSchema
+module.exports = DiarySchema

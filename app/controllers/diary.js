@@ -1,9 +1,15 @@
 var Article = require('../models/articles');
+var Comment = require('../models/comment')
 var _ = require('underscore');
 
 exports.save = function(req,res) {
 	var _article = req.body.article;
 	var _new;
+
+	Article.count({},function(err,count){
+		_article.articleId = count + 1;
+	});
+
 	Article.findOne({title:_article.title},function(err,article){
 		if (err) console.log(err);
 		if (article) {
@@ -45,8 +51,25 @@ exports.all = function(req,res){
 	});
 }
 exports.con = function(req,res){
-	res.render('article_in',{
-		title:'文章后台页面'
+	var articleId = parseInt(req.query.articleId);
+	
+	Article.findOne({articleId:articleId},function(err,article){
+		if (err) console.log(err);
+		Comment
+			.find({article: articleId})
+			.populate('from','name')
+			.populate('reply.from reply.to','name')
+			.exec(function(err, comments){
+			if (err) {
+				console.log(err)
+			}
+			res.render('article_in',{
+				title: article.title,
+				article: article,
+				comments: comments
+			})
+
+		})
 	})
 }
 exports.pagearticle = function(req,res){
