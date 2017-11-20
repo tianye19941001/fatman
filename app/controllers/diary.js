@@ -1,26 +1,26 @@
-var Article = require('../models/articles');
+var Diary = require('../models/diarys');
 var Comment = require('../models/comment')
 var _ = require('underscore');
 
 exports.save = function(req,res) {
-	var _article = req.body.article;
+	var _diary = req.body.diary;
 	var _new;
 
-	Article.count({},function(err,count){
-		_article.articleId = count + 1;
+	Diary.count({},function(err,count){
+		_diary.diaryId = 100001 + count;
 	});
 
-	Article.findOne({title:_article.title},function(err,article){
+	Diary.findOne({title:_diary.title},function(err,diary){
 		if (err) console.log(err);
-		if (article) {
-			_new = _.extend(article, _article)
-			_new.save(function(err,article){
+		if (diary) {
+			_new = _.extend(diary, _diary)
+			_new.save(function(err,diary){
 				if (err) console.log(err);
 				res.redirect('/')
 			})
 		}else{
-			var article = new Article(_article);
-			article.save(function(err,article){
+			var diary = new Diary(_diary);
+			diary.save(function(err,diary){
 				if (err) console.log(err);
 				res.redirect('/');
 			})
@@ -29,21 +29,21 @@ exports.save = function(req,res) {
 }
 
 exports.all = function(req,res){
-	var number = 4;
+	var number = 8;
 	var num = 1;
 	if (req.query.number) {
 		num = req.query.number;
 	}
-	Article.count({},function(err,count){
+	Diary.count({},function(err,count){
 		var allnum = Math.ceil(count/4);
 		if (num == 0) num = 1;
 		if (num > allnum) num = allnum;
 		for (var i = 1,Anum = []; i <= allnum; i++) {
 			Anum.push(i);
 		}
-		Article.find({}).sort({_id: -1}).limit(number).skip((num-1)*number).exec(function(err,articles){
-			res.render('article',{
-				articles:articles,
+		Diary.find({}).sort({_id: -1}).limit(number).skip((num-1)*number).exec(function(err,diarys){
+			res.render('diary',{
+				diarys:diarys,
 				numbers:Anum,
 				now:parseInt(num)
 			})
@@ -51,29 +51,29 @@ exports.all = function(req,res){
 	});
 }
 exports.con = function(req,res){
-	var articleId = parseInt(req.query.articleId);
+	var diaryId = parseInt(req.query.diaryId);
 	
-	Article.findOne({articleId:articleId},function(err,article){
+	Diary.findOne({diaryId:diaryId},function(err,diary){
 		if (err) console.log(err);
 		Comment
-			.find({article: articleId})
+			.find({article: diaryId})
 			.populate('from','name')
 			.populate('reply.from reply.to','name')
 			.exec(function(err, comments){
 			if (err) {
 				console.log(err)
 			}
-			res.render('article_in',{
-				title: article.title,
-				article: article,
+			res.render('diary_in',{
+				title: diary.title,
+				diary: diary,
 				comments: comments
 			})
 
 		})
 	})
 }
-exports.pagearticle = function(req,res){
-	res.render('admin_article',{
+exports.pagediary = function(req,res){
+	res.render('admin_diary',{
 		title:'文章后台页面'
 	})
 }

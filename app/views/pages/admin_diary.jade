@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+	form.ty_admin_article(action="/admin/diary",method="post")
+		h2 日记上传
+		h3 标题
+		input.ty_admin_TitArticle(type="text",name="diary[title]")
+		h3 摘要
+		textarea.ty_admin_ConArticle(name="diary[summary]")
+		input.ty_admin_SubArticle(type="submit",value="提交")
+	script(src="/libs/js/admin.js")

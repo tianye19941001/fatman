@@ -2,14 +2,14 @@ extends ../layout
 
 block content
 	h1.ty_in_title 
-		span 小文章
+		span 新闻
 	.ty_article_list
 		ul
 			if articles
 				each item in articles
 					li
 						h3 
-							a(href="#{item.url}") #{item.title}
+							a(href="article_in?articleId=#{item.articleId}") #{item.title}
 						p #{item.summary}
 			else
 				

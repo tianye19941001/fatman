@@ -17,12 +17,12 @@ block content
 				h2.ty_index_h2 
 					span 旅游日记
 				ul
-					each item in articles
+					each item in diarys
 						li
 							h3 
-								a(href="article_in?id=#{item.articleId}") #{item.title}
+								a(href="diary_in?diaryId=#{item.diaryId}") #{item.title}
 							p #{item.summary}
-				a.more(href="/article") 更多----->
+				a.more(href="/diarys") 更多----->
 		.ty_right
 			.ty_article_list
 				h2.ty_index_h2
@@ -31,9 +31,9 @@ block content
 					each item in articles
 						li
 							h3 
-								a(href="#{item.url}") #{item.title}
+								a(href="article_in?articleId=#{item.articleId}") #{item.title}
 							p #{item.summary}
-				a.more(href="/article") 更多----->
+				a.more(href="/articles") 更多----->
 	.ty_picall
 		h2.ty_index_h2
 			span 图片赏析

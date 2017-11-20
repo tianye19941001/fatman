@@ -3,6 +3,7 @@ var Index = require('../app/controllers/index');
 var User = require('../app/controllers/user');
 var Comment = require('../app/controllers/comment');
 var Article = require('../app/controllers/article');
+var Diary = require('../app/controllers/diary');
 var Message = require('../app/controllers/meg');
 var Other = require('../app/controllers/otherpages');
 var Interesting = require('../app/controllers/interesting');
@@ -20,8 +21,13 @@ module.exports = function(app) {
 	})
 
 	app.get('/',Index.index);
-	app.get('/article',Article.all);
+
+	app.get('/articles',Article.all);
 	app.get('/article_in',Article.con);
+
+	app.get('/diarys',Diary.all);
+	app.get('/diary_in',Diary.con);
+
 	app.get('/interesting',Interesting.all);
 	app.get('/register',User.pagereg);
 	app.get('/login',User.pagelogin);
@@ -38,8 +44,14 @@ module.exports = function(app) {
 	app.get('/interesting/light',Interesting.gameLight);
 
 	app.get('/admin/article',User.signinRequired,User.adminRequired,Article.pagearticle);
-	app.post('/admin/article',User.signinRequired,User.adminRequired,User.adminRequired,Article.save);
-	app.get('/admin/list',User.signinRequired,User.adminRequired,Article.pagelist );
+	app.post('/admin/article',User.signinRequired,User.adminRequired,Article.save);
+
+	app.get('/admin/diary',User.signinRequired,Diary.pagediary);
+	app.post('/admin/diary',User.signinRequired,Diary.save);
+
+
+	app.get('/admin/articles_list',User.signinRequired,User.adminRequired,Article.pagelist );
+	app.get('/admin/diarys_list',User.signinRequired,User.adminRequired,Article.pagelist );
 
 	app.post('/user/comment',User.signinRequired,Comment.save);
 

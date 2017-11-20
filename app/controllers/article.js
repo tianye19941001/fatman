@@ -7,7 +7,7 @@ exports.save = function(req,res) {
 	var _new;
 
 	Article.count({},function(err,count){
-		_article.articleId = count + 1;
+		_article.articleId = 200001 + count;
 	});
 
 	Article.findOne({title:_article.title},function(err,article){
@@ -29,7 +29,7 @@ exports.save = function(req,res) {
 }
 
 exports.all = function(req,res){
-	var number = 4;
+	var number = 8;
 	var num = 1;
 	if (req.query.number) {
 		num = req.query.number;

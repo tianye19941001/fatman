@@ -3,7 +3,9 @@ var Comment = require('../models/comment')
 exports.save = function(req,res){
 	var _comment = req.body.comment;
 	var articleId = _comment.article;
-	console.log(_comment)
+
+	var urlLast = _comment.type == 'diary' ? '/diary_in?diaryId=' : '/article_in?articleId=';
+		
 	if (_comment.cid) {
 		Comment.findById(_comment.cid,function(err,comment){
 			if (err) console.log(err)
@@ -19,9 +21,7 @@ exports.save = function(req,res){
 				if (err) {
 					console.log(err)
 				}
-				res.redirect('/article_in?articleId='+articleId)
 			})
-
 		})
 	}else{
 		var comment = new Comment(_comment)
@@ -30,8 +30,8 @@ exports.save = function(req,res){
 			if (err) {
 				console.log(err)
 			}
-			res.redirect('/article_in?articleId='+articleId)
 		})
 	}
+	res.redirect( urlLast + articleId)
 }
 
