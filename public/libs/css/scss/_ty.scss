@@ -1,6 +1,6 @@
 @charset "utf-8";
 html,body{ font-family: "微软雅黑"; min-width: 1000px; }
-body{ background: #eee; }
+body{ background: #eee; padding-bottom: 50px }
 %positionCenter{ position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); }
 header{ position: fixed; top: 0; left: 0; width: 100%; height:70px; background: #2A2A2A; width: 100%; z-index: 4;
 	ul{ @extend .clearfix; margin: 0 auto; font-size: 14px; width: 80%; margin: 0 auto;  }
@@ -87,9 +87,11 @@ header{ position: fixed; top: 0; left: 0; width: 100%; height:70px; background: 
 .ty_msg_sub{ margin-top: 10px; @extend .clearfix;
 	input{ float: right; border: 0;  background: #E78170; color: #fff; font-family: '微软雅黑'; font-size: 18px; cursor: pointer; width: 120px; height: 45px; line-height: 45px; border-radius: 8px }
 }
-.ty_admin_list{ background: #fff; box-shadow: 0 0 5px rgba(0,0,0,.5); border-radius: 10px; font-size: 16px; padding: 30px 15px;
-	h2{ font-size: 24px; text-align: center; }
+.ty_admin_list{ background: #fff; box-shadow: 0 0 5px rgba(0,0,0,.5);  font-size: 16px; padding: 30px 15px; padding-top: 100px;
+	h2{ font-size: 24px; text-align: center; margin-bottom: 30px }
 	table{ margin-bottom: 20px; text-align: center; width: 100%; background: #dedede; border-radius: 8px; }
+	tr{ height: 50px; }
+	a{ margin: 0 6px; display: inline-block }
 	a:hover{ color: red; }
 }
 .ty_tellyou{ font-size: 16px; text-align: center; }
@@ -223,7 +225,7 @@ header{ position: fixed; top: 0; left: 0; width: 100%; height:70px; background: 
 		}
 	}
 }
-footer{ height: 50px; min-width:1200px; line-height: 50px; text-align: center; background-color: rgba(0,0,0,.5);}
+footer{ position: fixed; width:100%; bottom: 0; left: 0; height: 50px; min-width:1200px; line-height: 50px; text-align: center; background-color: rgba(0,0,0,.5);}
 
 .ty_acIn_title{
 	text-align: center;

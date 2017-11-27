@@ -78,7 +78,24 @@ exports.pagearticle = function(req,res){
 	})
 }
 exports.pagelist = function(req,res){
-	res.render('admin_list',{
-		title:'后台列表页面'
+	Article.find({}).sort({_id: -1}).exec(function(err,articles){
+		res.render('admin_list',{
+			title:'后台新闻列表页面',
+			type: 'article',
+			showList: articles
+		})
 	})
+}
+
+exports.del = function(req,res){
+	var id = req.query.id
+	if(id){
+		Article.remove({_id:id},function(err,article){
+			if(err){
+				console.log(err)
+			}else{
+				res.json({success:1})
+			}
+		})
+	}
 }

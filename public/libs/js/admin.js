@@ -1,15 +1,47 @@
 (function() {
-	$('.ty_admin_GetArticle').click(function(){
-		var url = $('.ty_admin_AdrArticle').val();
+	$('.del').click(function(e){
+		var target = $(e.target)
+		var id = target.data('id')
+		var tr = $('.item-id-' + id)
+
 		$.ajax({
-			url:'/Crawler',
-			type:'post',
-			data:{url:url},
-			success:function(data){
-				if (data) {
-					console.log(data);
-					$('.ty_admin_TitArticle').val(data.title);
-					$('.ty_admin_ConArticle').val(data.summary);
+			type:'DELETE',
+			url: '/admin/article?id='+id
+		})
+		.done(function(results){
+			if (results.success===1) {
+				location.reload();
+			}
+		})
+	})
+	$('.delD').click(function(e){
+		var target = $(e.target)
+		var id = target.data('id')
+		var tr = $('.item-id-' + id)
+
+		$.ajax({
+			type:'DELETE',
+			url: '/admin/diary?id='+id
+		})
+		.done(function(results){
+			if (results.success===1) {
+				location.reload();
+			}
+		})
+	})
+	$('.userdel').click(function(e){
+		var target = $(e.target)
+		var id = target.data('id')
+		var tr = $('.item-id-' + id)
+
+		$.ajax({
+			type:'DELETE',
+			url: '/admin/userlist?id='+id
+		})
+		.done(function(results){
+			if (results.success===1) {
+				if(tr.length>0){
+					tr.remove()
 				}
 			}
 		})

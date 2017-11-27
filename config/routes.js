@@ -48,12 +48,14 @@ module.exports = function(app) {
 	
 	app.get('/admin/article',User.signinRequired,User.adminRequired,Article.pagearticle);
 	app.post('/admin/article',User.signinRequired,User.adminRequired,Article.save);
+	app.delete('/admin/article',User.signinRequired,User.adminRequired,Article.del);
 
-	app.get('/admin/diary',User.signinRequired,Diary.pagediary);
-	app.post('/admin/diary',User.signinRequired,Diary.save);
+	app.get('/admin/diary',User.signinRequired,User.adminRequired,Diary.pagediary);
+	app.post('/admin/diary',User.signinRequired,User.adminRequired,Diary.save);
+	app.delete('/admin/diary',User.signinRequired,User.adminRequired,Diary.del);
 
 	app.get('/admin/articles_list',User.signinRequired,User.adminRequired,Article.pagelist );
-	app.get('/admin/diarys_list',User.signinRequired,User.adminRequired,Article.pagelist );
+	app.get('/admin/diarys_list',User.signinRequired,User.adminRequired,Diary.pagelist );
 
 	app.post('/user/comment',User.signinRequired,Comment.save);
 

@@ -2,37 +2,18 @@ extends ../layout
 
 block content
 	.ty_admin_list
-		h2 用户列表
+		h2 #{title}
 		table
 			tr
-				td 昵称
+				td 文章名称
 				td 操作
-			tr
-				td sasdas
-				td
-					a(href="/") 删除
-			tr
-				td asdasd
-		h2 文章列表
-		table
-			tr
-				td 昵称
-				td 操作
-			tr
-				td sasdas
-				td
-					a(href="/") 删除
-			tr
-				td asdasd
-		h2 作品列表
-		table
-			tr
-				td 昵称
-				td 操作
-			tr
-				td sasdas
-				td
-					a(href="/") 删除
-			tr
-				td asdasd
-		
+			each item in showList
+				tr
+					td #{item.title}
+					td
+						if type == "articles"
+							button.del(type="button",data-id="#{item._id}") 删除
+						else
+							button.delD(type="button",data-id="#{item._id}") 删除
+						a(href="/") 修改
+	script(src="/libs/js/admin.js")

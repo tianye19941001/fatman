@@ -78,7 +78,24 @@ exports.pagediary = function(req,res){
 	})
 }
 exports.pagelist = function(req,res){
-	res.render('admin_list',{
-		title:'后台列表页面'
+	Diary.find({}).sort({_id: -1}).exec(function(err,diarys){
+		res.render('admin_list',{
+			title:'后台日记列表页面',
+			type: 'diary',
+			showList: diarys
+		})
 	})
+}
+
+exports.del = function(req,res){
+	var id = req.query.id
+	if(id){
+		Diary.remove({_id:id},function(err,diary){
+			if(err){
+				console.log(err)
+			}else{
+				res.json({success:1})
+			}
+		})
+	}
 }
