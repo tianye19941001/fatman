@@ -29,6 +29,8 @@ module.exports = function(app) {
 	app.get('/diarys',Diary.all);
 	app.get('/diary_in',Diary.con);
 
+	app.get('/pics',Other.pics);
+
 	app.get('/interesting',Interesting.all);
 	app.get('/register',User.pagereg);
 	app.get('/login',User.pagelogin);
