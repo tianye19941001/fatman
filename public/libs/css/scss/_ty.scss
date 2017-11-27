@@ -233,6 +233,7 @@ footer{ height: 50px; min-width:1200px; line-height: 50px; text-align: center; b
 .ty_acIn_con{ padding-top: 60px;
 	h3{ padding: 10px; font-size: 30px; text-align: center; margin-bottom: 30px }
 	p{ font-size: 16px; text-align: left; text-indent: 32px; width: 90%; margin-bottom: 50px; word-break: break-all; }
+	img{ max-width: 100%; display: block; margin: 0 auto 20px; }
 }
 
 #comments_con{ padding: 30px; 
@@ -247,4 +248,11 @@ footer{ height: 50px; min-width:1200px; line-height: 50px; text-align: center; b
 	padding: 30px;
 	textarea{ width: 100%; height: 50px; resize: none; margin-bottom: 20px }
 	button{ padding: 3px 12px; font-size: 14px; background-color: #E78170; border: 0; border-radius: 3px; color: #fff; }
+}
+
+.admin_all{ text-align: center; padding-top: 50px;
+	h2{ font-size: 40px; margin-bottom: 30px }
+	li{ margin-bottom: 20px;
+		a{ display: block; margin: 0 auto; padding: 10px 20px; width: 50%; font-size: 32px; background-color: #e4651e; color: #fff; border-radius: 6px; }
+	}
 }

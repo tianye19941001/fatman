@@ -9,7 +9,7 @@ var DiarySchema = new mongoose.Schema({
 	summary:String,
 	url:String,
 	diaryId:Number,
-	imgs: Array,
+	img: String,
 	meta:{
 		creatAt:{
 			type:Date,

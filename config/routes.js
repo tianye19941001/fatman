@@ -7,6 +7,7 @@ var Diary = require('../app/controllers/diary');
 var Message = require('../app/controllers/meg');
 var Other = require('../app/controllers/otherpages');
 var Interesting = require('../app/controllers/interesting');
+var Admin = require('../app/controllers/admin');
 var Cr = require('../app/controllers/cr');
 
 var multer  = require('multer')
@@ -43,12 +44,13 @@ module.exports = function(app) {
 	// 小玩意
 	app.get('/interesting/light',Interesting.gameLight);
 
+	app.get('/admin',User.signinRequired,User.adminRequired,Admin.all);
+	
 	app.get('/admin/article',User.signinRequired,User.adminRequired,Article.pagearticle);
 	app.post('/admin/article',User.signinRequired,User.adminRequired,Article.save);
 
 	app.get('/admin/diary',User.signinRequired,Diary.pagediary);
 	app.post('/admin/diary',User.signinRequired,Diary.save);
-
 
 	app.get('/admin/articles_list',User.signinRequired,User.adminRequired,Article.pagelist );
 	app.get('/admin/diarys_list',User.signinRequired,User.adminRequired,Article.pagelist );
