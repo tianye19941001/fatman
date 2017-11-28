@@ -3,6 +3,7 @@ extends ../layout
 block content
 	.ty_admin_list
 		h2 #{title}
+			a(href="/admin/#{type}/",class="btn") 新建
 		table
 			tr
 				td 文章名称
@@ -15,5 +16,4 @@ block content
 							button.del(type="button",data-id="#{item._id}") 删除
 						else
 							button.delD(type="button",data-id="#{item._id}") 删除
-						a(href="/") 修改
 	script(src="/libs/js/admin.js")

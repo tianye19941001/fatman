@@ -4,12 +4,10 @@ block content
 	.ty_bannar
 		.swiper-container(style='width:100%;height:400px;')
 			.swiper-wrapper
-				.swiper-slide
-					img(src="/libs/images/timg.jpeg")
-				.swiper-slide
-					img(src="/libs/images/timg.jpeg")
-				.swiper-slide
-					img(src="/libs/images/timg.jpeg")
+				each item in bannars
+					.swiper-slide
+						a(href="diary_in?diaryId=#{item.diaryId}")
+							img(src="#{item.img}",alt="#{item.title}")
 			.swiper-pagination
 	.ty_index
 		.ty_left
@@ -22,6 +20,8 @@ block content
 							h3 
 								a(href="diary_in?diaryId=#{item.diaryId}") #{item.title}
 							p #{item.summary}
+								if item.img
+									img(src="#{item.img}", alt="暂无图片")
 				a.more(href="/diarys") 更多----->
 		.ty_right
 			.ty_article_list
@@ -45,7 +45,7 @@ block content
 				a(href="#") 
 					img(src="/libs/images/timg.jpeg", alt="alt")
 	.dialog_for_show
-		.topbar 欢迎大家进入百里长廊旅游网
+		.topbar 欢迎大家进入百里画廊旅游网
 		.con
 			img.img(src="/libs/images/timg.jpeg", alt="alt")
 			img.img1(src="/libs/images/yun1.png", alt="alt")
