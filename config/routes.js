@@ -7,6 +7,7 @@ var Diary = require('../app/controllers/diary');
 var Message = require('../app/controllers/meg');
 var Other = require('../app/controllers/otherpages');
 var Interesting = require('../app/controllers/interesting');
+var Img = require('../app/controllers/img');
 var Admin = require('../app/controllers/admin');
 var Cr = require('../app/controllers/cr');
 
@@ -29,7 +30,7 @@ module.exports = function(app) {
 	app.get('/diarys',Diary.all);
 	app.get('/diary_in',Diary.con);
 
-	app.get('/pics',Other.pics);
+	app.get('/imgs',Img.all);
 
 	app.get('/interesting',Interesting.all);
 	app.get('/register',User.pagereg);
@@ -56,8 +57,13 @@ module.exports = function(app) {
 	app.post('/admin/diary',User.signinRequired,User.adminRequired,Diary.save);
 	app.delete('/admin/diary',User.signinRequired,User.adminRequired,Diary.del);
 
+	app.get('/admin/img',User.signinRequired,User.adminRequired,Img.pageimg);
+	app.post('/admin/img',User.signinRequired,User.adminRequired,Img.save);
+	app.delete('/admin/img',User.signinRequired,User.adminRequired,Img.del);
+
 	app.get('/admin/articles_list',User.signinRequired,User.adminRequired,Article.pagelist );
 	app.get('/admin/diarys_list',User.signinRequired,User.adminRequired,Diary.pagelist );
+	app.get('/admin/imgs_list',User.signinRequired,User.adminRequired,Img.pagelist );
 
 	app.post('/user/comment',User.signinRequired,Comment.save);
 

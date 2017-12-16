@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+	form.ty_admin_article(action="/admin/img",method="post")
+		h2 图片上传
+		h3 标题
+		input.ty_admin_TitArticle(type="text",name="img[title]")
+		h3 摘要
+		input.ty_admin_TitArticle(type="text",name="img[detial]")
+		h3 图片链接
+		input.ty_admin_TitArticle(type="text",name="img[url]")
+		input.ty_admin_SubArticle(type="submit",value="提交")
+	script(src="/libs/js/admin.js")

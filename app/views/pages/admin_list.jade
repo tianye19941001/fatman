@@ -6,14 +6,16 @@ block content
 			a(href="/admin/#{type}/",class="btn") 新建
 		table
 			tr
-				td 文章名称
+				td 名称
 				td 操作
 			each item in showList
 				tr
 					td #{item.title}
 					td
-						if type == "articles"
+						if type == "article"
 							button.del(type="button",data-id="#{item._id}") 删除
-						else
+						else if type == "diary"
 							button.delD(type="button",data-id="#{item._id}") 删除
+						else
+							button.delI(type="button",data-id="#{item._id}") 删除
 	script(src="/libs/js/admin.js")

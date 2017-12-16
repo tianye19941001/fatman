@@ -227,6 +227,19 @@ header{ position: fixed; top: 0; left: 0; width: 100%; height:70px; background: 
 }
 footer{ position: fixed; width:100%; bottom: 0; left: 0; height: 50px; min-width:1200px; line-height: 50px; text-align: center; background-color: rgba(0,0,0,.5);}
 
+.ty_pic_list{
+	ul{ @extend .clearfix; }
+	li{ margin: 10px; width: 220px; height: 280px;  overflow: hidden; float: left;
+		img{ display: block; min-width: 220px; height: 220px; cursor: pointer; }
+		h3{ text-align: center; line-height: 30px; font-size: 20px; }
+		p{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+
+		&:hover{
+			box-shadow: 0 0 9px rgba(0,0,0,.3);
+		}
+	}
+}
+
 .ty_acIn_title{
 	text-align: center;
 	font-size: 40px;
