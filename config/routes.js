@@ -6,7 +6,6 @@ var Article = require('../app/controllers/article');
 var Diary = require('../app/controllers/diary');
 var Message = require('../app/controllers/meg');
 var Other = require('../app/controllers/otherpages');
-var Interesting = require('../app/controllers/interesting');
 var Img = require('../app/controllers/img');
 var Admin = require('../app/controllers/admin');
 var Cr = require('../app/controllers/cr');
@@ -32,7 +31,6 @@ module.exports = function(app) {
 
 	app.get('/imgs',Img.all);
 
-	app.get('/interesting',Interesting.all);
 	app.get('/register',User.pagereg);
 	app.get('/login',User.pagelogin);
 	app.get('/logout',User.logout);
@@ -43,9 +41,6 @@ module.exports = function(app) {
 	app.post('/connect/message',User.signinRequired,Message.save);
 	//关于我
 	app.get('/about',Other.about);
-
-	// 小玩意
-	app.get('/interesting/light',Interesting.gameLight);
 
 	app.get('/admin',User.signinRequired,User.adminRequired,Admin.all);
 	
@@ -70,8 +65,6 @@ module.exports = function(app) {
 	// 爬文章接口
 	app.post('/Crawler',User.signinRequired,User.adminRequired,Cr.cr);
 
-	app.get('/admin/interesting',User.signinRequired,User.adminRequired,Interesting.pageinteresting);
-	app.post('/admin/interesting',User.signinRequired,User.adminRequired,upload.single('avatar'),Interesting.save);
 
 	
 	app.get('/about',Other.min);
