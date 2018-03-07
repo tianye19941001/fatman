@@ -77,6 +77,7 @@ header{ position: fixed; top: 0; left: 0; width: 100%; height:70px; background: 
 .ty_headPic{ margin: 0 auto; }
 .ty_msg_bor{ padding-top: 30px;
 	textarea{ width: 1160px; padding: 20px; height: 100px; resize:none; border: 1px solid #dedede; border-radius: 8px; outline: none; font-size: 16px; font-family: '微软雅黑'; }
+	.input{ display: block; width: 100%; height: 50px; line-height: 50px; }
 }
 .ty_admin_article{ padding: 130px 20px 0;
 	h2{ font-size: 36px; text-align: center; margin-bottom: 30px;

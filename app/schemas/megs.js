@@ -8,6 +8,7 @@ var MessageSchema = new mongoose.Schema({
 		type: ObjectId,
 		ref: 'User'
 	},
+	image:String,
 	meta:{
 		creatAt:{
 			type:Date,

@@ -12,9 +12,12 @@ block content
 						span 昵称:
 						strong #{item.name.name}
 						p #{item.message}
+						if item.image
+							img(src="#{item.image}", alt="暂无图片")
 		form.ty_msg_bor(action="connect/message",method="post")
 			if user
 				textarea(placeholder="谢谢留言",name="message[message]")
+				input.input(placeholder="支持放上图片链接啦",name="message[image]")
 				input(type="hidden",name="message[name]",value="#{user._id}")
 				p.ty_msg_sub
 					input(type="submit",value="提交")
