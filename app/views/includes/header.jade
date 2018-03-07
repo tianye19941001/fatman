@@ -14,6 +14,12 @@ header
 	if user
 		span 欢迎 
 		span #{user.name}
+		if user.role > 10
+			em
+				a(href='/admin') 后台系统
+		else
+			em
+				a(href='/admin/diary') 上传日记
 		a(href='/logout') 退出
 	else
 		a(href='/register') 注册

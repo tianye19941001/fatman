@@ -48,9 +48,9 @@ module.exports = function(app) {
 	app.post('/admin/article',User.signinRequired,User.adminRequired,Article.save);
 	app.delete('/admin/article',User.signinRequired,User.adminRequired,Article.del);
 
-	app.get('/admin/diary',User.signinRequired,User.adminRequired,Diary.pagediary);
-	app.post('/admin/diary',User.signinRequired,User.adminRequired,Diary.save);
-	app.delete('/admin/diary',User.signinRequired,User.adminRequired,Diary.del);
+	app.get('/admin/diary',User.signinRequired,Diary.pagediary);
+	app.post('/admin/diary',User.signinRequired,Diary.save);
+	app.delete('/admin/diary',User.signinRequired,Diary.del);
 
 	app.get('/admin/img',User.signinRequired,User.adminRequired,Img.pageimg);
 	app.post('/admin/img',User.signinRequired,User.adminRequired,Img.save);
