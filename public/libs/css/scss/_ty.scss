@@ -293,3 +293,17 @@ footer{ position: fixed; width:100%; bottom: 0; left: 0; height: 50px; min-width
 	}
 }
 .btn{ padding: 5px 20px; border: 1px solid #ddd; display: inline-block; border-radius: 3px; float: right; font-size: 16px; }
+
+.topThree{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 800px;
+	height: 400px;
+	transform: translate(-50%,-50%);
+	overflow: hidden;
+	@extend .clearfix;
+	
+	a{ float: left; width: 400px; height: 200px; overflow: hidden; }
+	a:first-child { width: 400px; height: 400px; }
+}

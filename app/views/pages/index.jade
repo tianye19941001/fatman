@@ -49,6 +49,11 @@ block content
 			img.img(src="/libs/images/timg.jpeg", alt="alt")
 			img.img1(src="/libs/images/yun1.png", alt="alt")
 			img.img2(src="/libs/images/yun2.png", alt="alt")
+			.topThree
+				if bannars
+					each item in bannars
+						a.product(href="diary_in?diaryId=#{item.diaryId}")
+							img(src="#{item.img}",alt="#{item.title}")
 			p 点击任意地点关闭
 	script(src="/libs/js/swiper.js")
 	script(src="/libs/js/app.js")
